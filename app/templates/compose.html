@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Compose{% endblock %}
+{% block content %}
+    <h2>Compose Email</h2>
+    <form method="POST" action="{{ url_for('main.compose') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.to.label }}<br>
+            {{ form.to(size=32) }}<br>
+            {{ form.to.errors }}
+        </div>
+        <div>
+            {{ form.subject.label }}<br>
+            {{ form.subject(size=32) }}<br>
+            {{ form.subject.errors }}
+        </div>
+        <div>
+            {{ form.body.label }}<br>
+            {{ form.body(rows=10, cols=32) }}<br>
+            {{ form.body.errors }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}

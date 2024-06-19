@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Inbox{% endblock %}
+{% block content %}
+    <h2>Inbox</h2>
+    <ul>
+        {% for email in emails %}
+            <li>{{ email.subject }} - {{ email.body }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
